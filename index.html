@@ -7,7 +7,7 @@
 <meta name="description" content="Простой калькулятор: 14,44 или 8,8 за каждую тысячу.">
 <title>Калькулятор лимита</title>
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#10131b;color:#f1f4fb}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 0,#222d45 0,transparent 65%),#10131b}main{width:100%;max-width:460px;padding:32px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:#a7b7d6;margin-bottom:14px}h1{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}p{color:#a6b0c3;line-height:1.6;font-size:14px;margin:0 0 28px}label.caption{display:block;font-size:14px;margin-bottom:10px}input[type=text]{width:100%;font:inherit;font-size:26px;background:#111722;color:#fff;border:1px solid #3b465d;border-radius:13px;padding:16px;outline:none}input[type=text]:focus{border-color:#9abaff;box-shadow:0 0 0 3px #9abaff20}fieldset{padding:0;border:0;margin:24px 0}legend{font-size:14px;margin-bottom:12px}.mode{display:flex;align-items:center;gap:12px;border:1px solid #364056;border-radius:13px;padding:15px;cursor:pointer;margin-bottom:10px}.mode:has(input:checked){background:#283951;border-color:#8eb5ff}input[type=radio]{appearance:none;flex-shrink:0;width:22px;height:22px;margin:0;border:1px solid #70809c;border-radius:6px;display:grid;place-content:center}input[type=radio]:checked{background:#a8c7ff;border-color:#a8c7ff}input[type=radio]:checked:after{content:'✓';color:#14213b;font-size:17px;font-weight:800}.mode span{font-size:14px}.mode small{display:block;color:#acb8cc;font-size:12px;margin-top:4px}.result{background:#111722;border:1px solid #2e384b;border-radius:16px;padding:20px;margin-bottom:16px}.result small{color:#a6b0c3;font-size:13px}output{display:block;font-size:clamp(24px,7vw,42px);line-height:1.3;font-weight:650;letter-spacing:-.04em;margin-top:8px;overflow-wrap:anywhere}button{width:100%;border:0;border-radius:12px;background:#aac8ff;color:#142039;padding:16px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:#c2d7ff}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:2px solid #c2d7ff;outline-offset:4px}#status{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}.foot{text-align:center;font-size:11px;margin:12px 0 0;color:#8794ab}@media(max-width:400px){main{padding:24px}}
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#10131b;color:#f1f4fb}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 0,#222d45 0,transparent 65%),#10131b}main{width:100%;max-width:460px;padding:32px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:#a7b7d6;margin-bottom:14px}h1{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}p{color:#a6b0c3;line-height:1.6;font-size:14px;margin:0 0 28px}label.caption{display:block;font-size:14px;margin-bottom:10px}input[type=text]{width:100%;font:inherit;font-size:26px;background:#111722;color:#fff;border:1px solid #3b465d;border-radius:13px;padding:16px;outline:none}input[type=text]:focus{border-color:#9abaff;box-shadow:0 0 0 3px #9abaff20}fieldset{padding:0;border:0;margin:24px 0}legend{font-size:14px;margin-bottom:12px}.mode{display:flex;align-items:center;gap:12px;border:1px solid #364056;border-radius:13px;padding:15px;cursor:pointer;margin-bottom:10px}.mode:has(input:checked){background:#283951;border-color:#8eb5ff}input[type=radio]{appearance:none;flex-shrink:0;width:22px;height:22px;margin:0;border:1px solid #70809c;border-radius:6px;display:grid;place-content:center}input[type=radio]:checked{background:#a8c7ff;border-color:#a8c7ff}input[type=radio]:checked:after{content:'✓';color:#14213b;font-size:17px;font-weight:800}.mode span{font-size:14px}.mode small{display:block;color:#acb8cc;font-size:12px;margin-top:4px}.result{background:#111722;border:1px solid #2e384b;border-radius:16px;padding:20px;margin-bottom:16px}.result small{color:#a6b0c3;font-size:13px}output{display:block;font-size:clamp(24px,7vw,42px);line-height:1.3;font-weight:650;letter-spacing:-.04em;margin-top:8px;overflow-wrap:anywhere}button{width:100%;border:0;border-radius:12px;background:#aac8ff;color:#142039;padding:16px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:#c2d7ff}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:2px solid #c2d7ff;outline-offset:4px}#copy-total{margin-top:0}.total-result{margin-top:24px;border-color:#5b739a}#status{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}.foot{text-align:center;font-size:11px;margin:12px 0 0;color:#8794ab}@media(max-width:400px){main{padding:24px}}
 </style>
 </head>
 <body>
@@ -25,6 +25,8 @@
 </fieldset>
 <div class="result"><small>Результат</small><output id="result" for="amount" aria-live="polite">—</output></div>
 <button id="copy" type="button" disabled>Скопировать результат</button>
+<div class="result total-result"><small>Сумма + процент</small><output id="total" for="amount" aria-live="polite">—</output></div>
+<button id="copy-total" type="button" disabled>Скопировать сумму с процентом</button>
 <div id="status" role="status"></div>
 <p class="foot">Результат округляется до двух знаков после запятой.</p>
 </main>
@@ -44,29 +46,33 @@ function parseAmount(raw){
  if(whole.length>15)throw Error('Слишком большая сумма: максимум 15 цифр до запятой.');
  return BigInt(whole)*100n+BigInt(fraction.padEnd(2,'0'));
 }
-function calculate(cents,rate){
- const rounded=(cents*BigInt(rate)+50000n)/100000n;
- return (rounded/100n).toString()+((rounded%100n)?'.'+(rounded%100n).toString().padStart(2,'0').replace(/0$/,''):'');
+function formatCents(cents){
+ return (cents/100n).toString()+((cents%100n)?'.'+(cents%100n).toString().padStart(2,'0').replace(/0$/,''):'');
 }
+function percentCents(cents,rate){return (cents*BigInt(rate)+50000n)/100000n;}
+function calculate(cents,rate){return formatCents(percentCents(cents,rate));}
 const amount=document.querySelector('#amount'),result=document.querySelector('#result'),copy=document.querySelector('#copy'),error=document.querySelector('#error'),status=document.querySelector('#status');
-let current='';
+const total=document.querySelector('#total'),copyTotal=document.querySelector('#copy-total');
+let current='',currentTotal='';
 function update(){
- status.textContent='';error.textContent='';amount.removeAttribute('aria-invalid');current='';
- try{const cents=parseAmount(amount.value);if(cents!==null){current=calculate(cents,document.querySelector('[name=mode]:checked').value);}}
+ status.textContent='';error.textContent='';amount.removeAttribute('aria-invalid');current='';currentTotal='';
+ try{const cents=parseAmount(amount.value);if(cents!==null){const rate=document.querySelector('[name=mode]:checked').value;current=calculate(cents,rate);currentTotal=formatCents(cents+percentCents(cents,rate));}}
  catch(e){error.textContent=e.message;amount.setAttribute('aria-invalid','true');}
  result.textContent=current?current.replace('.',','):'—';copy.disabled=!current;
+ total.textContent=currentTotal?currentTotal.replace('.',','):'—';copyTotal.disabled=!currentTotal;
 }
 amount.addEventListener('input',update);
 document.querySelectorAll('[name=mode]').forEach(r=>r.addEventListener('change',update));
-copy.addEventListener('click',async()=>{
- if(!current)return;
- const value=current;
+async function copyValue(value,button){
+ if(!value)return;
  try{
   if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(value);
-  else{const text=document.createElement('textarea');text.value=value;text.style.cssText='position:fixed;left:-9999px';document.body.appendChild(text);text.focus();text.select();text.setSelectionRange(0,text.value.length);const ok=document.execCommand('copy');text.remove();copy.focus();if(!ok)throw Error('copy');}
+  else{const text=document.createElement('textarea');text.value=value;text.style.cssText='position:fixed;left:-9999px';document.body.appendChild(text);text.focus();text.select();text.setSelectionRange(0,text.value.length);const ok=document.execCommand('copy');text.remove();button.focus();if(!ok)throw Error('copy');}
   status.textContent='Скопировано: '+value;
  }catch(e){status.textContent='Выдели результат и скопируй вручную.';}
-});
+}
+copy.addEventListener('click',()=>copyValue(current,copy));
+copyTotal.addEventListener('click',()=>copyValue(currentTotal,copyTotal));
 </script>
 </body>
 </html>
