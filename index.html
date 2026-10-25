@@ -28,7 +28,7 @@
 <div class="result total-result"><small>Сумма + процент</small><output id="total" for="amount" aria-live="polite">—</output></div>
 <button id="copy-total" type="button" disabled>Скопировать сумму с процентом</button>
 <div id="status" role="status"></div>
-<p class="foot">Результат округляется до двух знаков после запятой.</p>
+<p class="foot">Результаты округляются до целых: от 0,5 — вверх.</p>
 </main>
 <script>
 'use strict';
@@ -46,17 +46,15 @@ function parseAmount(raw){
  if(whole.length>15)throw Error('Слишком большая сумма: максимум 15 цифр до запятой.');
  return BigInt(whole)*100n+BigInt(fraction.padEnd(2,'0'));
 }
-function formatCents(cents){
- return (cents/100n).toString()+((cents%100n)?'.'+(cents%100n).toString().padStart(2,'0').replace(/0$/,''):'');
-}
-function percentCents(cents,rate){return (cents*BigInt(rate)+50000n)/100000n;}
-function calculate(cents,rate){return formatCents(percentCents(cents,rate));}
+function roundResult(numerator){return ((numerator+5000000n)/10000000n).toString();}
+function calculate(cents,rate){return roundResult(cents*BigInt(rate));}
+function calculateTotal(cents,rate){return roundResult(cents*(100000n+BigInt(rate)));}
 const amount=document.querySelector('#amount'),result=document.querySelector('#result'),copy=document.querySelector('#copy'),error=document.querySelector('#error'),status=document.querySelector('#status');
 const total=document.querySelector('#total'),copyTotal=document.querySelector('#copy-total');
 let current='',currentTotal='';
 function update(){
  status.textContent='';error.textContent='';amount.removeAttribute('aria-invalid');current='';currentTotal='';
- try{const cents=parseAmount(amount.value);if(cents!==null){const rate=document.querySelector('[name=mode]:checked').value;current=calculate(cents,rate);currentTotal=formatCents(cents+percentCents(cents,rate));}}
+ try{const cents=parseAmount(amount.value);if(cents!==null){const rate=document.querySelector('[name=mode]:checked').value;current=calculate(cents,rate);currentTotal=calculateTotal(cents,rate);}}
  catch(e){error.textContent=e.message;amount.setAttribute('aria-invalid','true');}
  result.textContent=current?current.replace('.',','):'—';copy.disabled=!current;
  total.textContent=currentTotal?currentTotal.replace('.',','):'—';copyTotal.disabled=!currentTotal;
