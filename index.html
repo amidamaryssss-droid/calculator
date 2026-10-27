@@ -4,26 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#151a25">
-<meta name="description" content="Простой калькулятор: 14,44 или 8,8 за каждую тысячу.">
+<meta name="description" content="Простой калькулятор: 13,33 или 8,8 за каждую тысячу.">
 <title>Калькулятор лимита</title>
 <style>
 :root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#10131b;color:#f1f4fb}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 0,#222d45 0,transparent 65%),#10131b}main{width:100%;max-width:460px;padding:32px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:#a7b7d6;margin-bottom:14px}h1{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}p{color:#a6b0c3;line-height:1.6;font-size:14px;margin:0 0 28px}label.caption{display:block;font-size:14px;margin-bottom:10px}input[type=text]{width:100%;font:inherit;font-size:26px;background:#111722;color:#fff;border:1px solid #3b465d;border-radius:13px;padding:16px;outline:none}input[type=text]:focus{border-color:#9abaff;box-shadow:0 0 0 3px #9abaff20}fieldset{padding:0;border:0;margin:24px 0}legend{font-size:14px;margin-bottom:12px}.mode{display:flex;align-items:center;gap:12px;border:1px solid #364056;border-radius:13px;padding:15px;cursor:pointer;margin-bottom:10px}.mode:has(input:checked){background:#283951;border-color:#8eb5ff}input:is([type=radio],[type=checkbox]){appearance:none;flex-shrink:0;width:22px;height:22px;margin:0;border:1px solid #70809c;border-radius:6px;display:grid;place-content:center}input:is([type=radio],[type=checkbox]):checked{background:#a8c7ff;border-color:#a8c7ff}input:is([type=radio],[type=checkbox]):checked:after{content:'✓';color:#14213b;font-size:17px;font-weight:800}.mode span{font-size:14px}.mode small{display:block;color:#acb8cc;font-size:12px;margin-top:4px}.result{background:#111722;border:1px solid #2e384b;border-radius:16px;padding:20px;margin-bottom:16px}.result small{color:#a6b0c3;font-size:13px}output{display:block;font-size:clamp(24px,7vw,42px);line-height:1.3;font-weight:650;letter-spacing:-.04em;margin-top:8px;overflow-wrap:anywhere}button{width:100%;border:0;border-radius:12px;background:#aac8ff;color:#142039;padding:16px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:#c2d7ff}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:2px solid #c2d7ff;outline-offset:4px}#copy-total{margin-top:0}.total-result{margin-top:24px;border-color:#5b739a}#status{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}.foot{text-align:center;font-size:11px;margin:12px 0 0;color:#8794ab}@media(max-width:400px){main{padding:24px}}
 .layout{display:grid;grid-template-columns:minmax(0,460px);align-items:start;gap:24px;width:100%;max-width:460px}.mini{padding:28px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.mini h2{font-size:24px;letter-spacing:-.03em;margin:0 0 10px}.mini .caption{margin-top:20px}.mini input{font-size:23px}.mini .result{margin-top:20px}.mini .excess{margin:20px 0 0;font-size:14px}.mini .excess strong{color:#f1f4fb}.mini-error{color:#ffb3b3;font-size:12px;min-height:18px;margin-top:8px}.mini-status{min-height:22px;text-align:center;font-size:12px;color:#b9ccec;margin-top:12px}@media(max-width:760px){.layout{grid-template-columns:minmax(0,460px);max-width:460px}}@media(max-width:400px){.mini{padding:24px}}
 .mini summary{cursor:pointer;font-size:21px;font-weight:650;line-height:1.4}.mini-body{margin-top:20px}.mini[open] summary{padding-bottom:16px;border-bottom:1px solid #30394b}
+.layout{grid-template-columns:repeat(2,minmax(0,460px));max-width:944px}.mini{grid-column:1/-1}#status-right{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error-right{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}@media(max-width:760px){.layout{grid-template-columns:minmax(0,460px);max-width:460px}}
 </style>
 </head>
 <body>
 <div class="layout">
 <main>
-<div class="badge">ПРОСТОЙ РАСЧЁТ</div>
+<div class="badge">КАЛЬКУЛЯТОР 1</div>
 <h1>Калькулятор лимита</h1>
 <p>Введи сумму и выбери режим расчёта.</p>
 <label class="caption" for="amount">Сумма</label>
-<input id="amount" type="text" inputmode="decimal" placeholder="Например, 38 000" autocomplete="off" spellcheck="false" aria-describedby="error">
+<input id="amount" type="text" inputmode="decimal" placeholder="Например, 124,000" autocomplete="off" spellcheck="false" aria-describedby="error">
 <div id="error" aria-live="polite"></div>
 <fieldset>
 <legend>Режим расчёта</legend>
-<label class="mode"><input type="radio" name="mode" value="1444" checked><span>В пределах лимита<small>1 000 = 14,44 · 1,444%</small></span></label>
+<label class="mode"><input type="radio" name="mode" value="1333" checked><span>В пределах лимита<small>1 000 = 13,33 · 1,333%</small></span></label>
 <label class="mode"><input type="radio" name="mode" value="880"><span>Сверх лимита<small>1 000 = 8,8 · 0,88%</small></span></label>
 </fieldset>
 <div class="result"><small>Результат</small><output id="result" for="amount" aria-live="polite">—</output></div>
@@ -32,6 +33,26 @@
 <label class="mode"><input id="extra-two" type="checkbox"><span>Прибавить +2%<small>2% от исходной суммы</small></span></label>
 <button id="copy-total" type="button" disabled>Скопировать сумму с процентом</button>
 <div id="status" role="status"></div>
+<p class="foot">Результаты округляются до целых: от 0,5 — вверх.</p>
+</main>
+<main>
+<div class="badge">КАЛЬКУЛЯТОР 2</div>
+<h1>Калькулятор лимита</h1>
+<p>Введи сумму и выбери режим расчёта.</p>
+<label class="caption" for="amount-right">Сумма</label>
+<input id="amount-right" type="text" inputmode="decimal" placeholder="Например, 124,000" autocomplete="off" spellcheck="false" aria-describedby="error-right">
+<div id="error-right" aria-live="polite"></div>
+<fieldset>
+<legend>Режим расчёта</legend>
+<label class="mode"><input type="radio" name="mode-right" value="660" checked><span>В пределах лимита<small>1 000 = 6,6 · 0,66%</small></span></label>
+<label class="mode"><input type="radio" name="mode-right" value="440"><span>Сверх лимита<small>1 000 = 4,4 · 0,44%</small></span></label>
+</fieldset>
+<div class="result"><small>Результат</small><output id="result-right" for="amount-right" aria-live="polite">—</output></div>
+<button id="copy-right" type="button" disabled>Скопировать результат</button>
+<div class="result total-result"><small>Сумма + процент</small><output id="total-right" for="amount-right" aria-live="polite">—</output></div>
+<label class="mode"><input id="extra-two-right" type="checkbox"><span>Прибавить +2%<small>2% от исходной суммы</small></span></label>
+<button id="copy-total-right" type="button" disabled>Скопировать сумму с процентом</button>
+<div id="status-right" role="status"></div>
 <p class="foot">Результаты округляются до целых: от 0,5 — вверх.</p>
 </main>
 <details class="mini">
@@ -45,7 +66,8 @@
 <div id="mini-error" class="mini-error" aria-live="polite"></div>
 <p class="excess">Сверх лимита: <strong id="excess" aria-live="polite">—</strong></p>
 <div class="result"><small>Комиссия 2% с превышения</small><output id="commission" for="scanned deal" aria-live="polite">—</output></div>
-<label class="mode"><input id="include-commission" type="checkbox"><span>Прибавить к основному итогу<small>Добавить комиссию к «Сумма + процент»</small></span></label>
+<label class="mode"><input id="include-commission" type="checkbox"><span>Прибавить к левому калькулятору<small>Добавить комиссию к «Сумма + процент»</small></span></label>
+<label class="mode"><input id="include-commission-right" type="checkbox"><span>Прибавить к правому калькулятору<small>Добавить комиссию к «Сумма + процент»</small></span></label>
 <button id="copy-commission" type="button" disabled>Скопировать комиссию</button>
 <div id="mini-status" class="mini-status" role="status"></div>
 <p class="foot">Комиссия округляется до целого. В пределах лимита — 0.</p>
@@ -71,20 +93,35 @@ function parseAmount(raw){
 function roundResult(numerator){return ((numerator+5000000n)/10000000n).toString();}
 function calculate(cents,rate){return roundResult(cents*BigInt(rate));}
 function calculateTotal(cents,rate,addTwo=false){return roundResult(cents*(100000n+BigInt(rate)+(addTwo?2000n:0n)));}
-const amount=document.querySelector('#amount'),result=document.querySelector('#result'),copy=document.querySelector('#copy'),error=document.querySelector('#error'),status=document.querySelector('#status');
-const total=document.querySelector('#total'),copyTotal=document.querySelector('#copy-total'),extraTwo=document.querySelector('#extra-two');
-let current='',currentTotal='';
-function update(){
- status.textContent='';error.textContent='';amount.removeAttribute('aria-invalid');current='';currentTotal='';
- try{const cents=parseAmount(amount.value);if(cents!==null){const rate=document.querySelector('[name=mode]:checked').value;current=calculate(cents,rate);currentTotal=calculateTotal(cents,rate,extraTwo.checked);if(includeCommission.checked){if(currentCommission===''){currentTotal='';error.textContent='Заполни мини-калькулятор для добавления комиссии.';}else currentTotal=(BigInt(currentTotal)+BigInt(currentCommission)).toString();}}}
- catch(e){error.textContent=e.message;amount.setAttribute('aria-invalid','true');}
- result.textContent=current?current.replace('.',','):'—';copy.disabled=!current;
- total.textContent=currentTotal?currentTotal.replace('.',','):'—';copyTotal.disabled=!currentTotal;
+
+const updates=[];
+function setupCalculator(suffix,modeName,feeCheckbox){
+ const get=id=>document.querySelector('#'+id+suffix);
+ const amount=get('amount'),result=get('result'),total=get('total'),copy=get('copy'),copyTotal=get('copy-total'),extraTwo=get('extra-two'),error=get('error'),status=get('status');
+ let current='',currentTotal='';
+ function update(){
+  current='';currentTotal='';error.textContent='';status.textContent='';amount.removeAttribute('aria-invalid');
+  try{
+   const cents=parseAmount(amount.value);
+   if(cents!==null){
+    const rate=document.querySelector('[name="'+modeName+'"]:checked').value;
+    current=calculate(cents,rate);currentTotal=calculateTotal(cents,rate,extraTwo.checked);
+    if(document.querySelector('#'+feeCheckbox).checked){
+     if(currentCommission===''){currentTotal='';error.textContent='Заполни мини-калькулятор для добавления комиссии.';}
+     else currentTotal=(BigInt(currentTotal)+BigInt(currentCommission)).toString();
+    }
+   }
+  }catch(e){error.textContent=e.message;amount.setAttribute('aria-invalid','true');}
+  result.textContent=current||'—';total.textContent=currentTotal||'—';copy.disabled=!current;copyTotal.disabled=!currentTotal;
+ }
+ amount.addEventListener('input',update);extraTwo.addEventListener('change',update);
+ document.querySelectorAll('[name="'+modeName+'"]').forEach(r=>r.addEventListener('change',update));
+ copy.addEventListener('click',()=>copyValue(current,copy,status));
+ copyTotal.addEventListener('click',()=>copyValue(currentTotal,copyTotal,status));
+ updates.push(update);
 }
-amount.addEventListener('input',update);
-extraTwo.addEventListener('change',update);
-document.querySelectorAll('[name=mode]').forEach(r=>r.addEventListener('change',update));
-async function copyValue(value,button,statusTarget=status){
+function updateAll(){updates.forEach(update=>update());}
+async function copyValue(value,button,statusTarget){
  if(!value)return;
  try{
   if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(value);
@@ -92,10 +129,8 @@ async function copyValue(value,button,statusTarget=status){
   statusTarget.textContent='Скопировано: '+value;
  }catch(e){statusTarget.textContent='Выдели результат и скопируй вручную.';}
 }
-copy.addEventListener('click',()=>copyValue(current,copy));
-copyTotal.addEventListener('click',()=>copyValue(currentTotal,copyTotal));
 const scanned=document.querySelector('#scanned'),deal=document.querySelector('#deal'),excess=document.querySelector('#excess'),commission=document.querySelector('#commission'),copyCommission=document.querySelector('#copy-commission'),miniError=document.querySelector('#mini-error'),miniStatus=document.querySelector('#mini-status');
-const includeCommission=document.querySelector('#include-commission');
+const includeCommission=document.querySelector('#include-commission'),includeRight=document.querySelector('#include-commission-right');
 let currentCommission='';
 function updateMini(){
  miniError.textContent='';miniStatus.textContent='';currentCommission='';
@@ -111,12 +146,16 @@ function updateMini(){
  excess.textContent=(over/100n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(over%100n?','+(over%100n).toString().padStart(2,'0'):'');
  currentCommission=calculate(over,2000);
  commission.textContent=currentCommission;copyCommission.disabled=false;
- }finally{update();}
+ }finally{updateAll();}
 }
-includeCommission.addEventListener('change',update);
+includeCommission.addEventListener('change',updateAll);
+includeRight.addEventListener('change',updateAll);
 scanned.addEventListener('input',updateMini);
 deal.addEventListener('input',updateMini);
 copyCommission.addEventListener('click',()=>copyValue(currentCommission,copyCommission,miniStatus));
+
+setupCalculator('','mode','include-commission');
+setupCalculator('-right','mode-right','include-commission-right');
 </script>
 </body>
 </html>
