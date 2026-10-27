@@ -7,17 +7,21 @@
 <meta name="description" content="Простой калькулятор: 13,33 или 8,8 за каждую тысячу.">
 <title>Калькулятор лимита</title>
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#10131b;color:#f1f4fb}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 0,#222d45 0,transparent 65%),#10131b}main{width:100%;max-width:460px;padding:32px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:#a7b7d6;margin-bottom:14px}h1{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}p{color:#a6b0c3;line-height:1.6;font-size:14px;margin:0 0 28px}label.caption{display:block;font-size:14px;margin-bottom:10px}input[type=text]{width:100%;font:inherit;font-size:26px;background:#111722;color:#fff;border:1px solid #3b465d;border-radius:13px;padding:16px;outline:none}input[type=text]:focus{border-color:#9abaff;box-shadow:0 0 0 3px #9abaff20}fieldset{padding:0;border:0;margin:24px 0}legend{font-size:14px;margin-bottom:12px}.mode{display:flex;align-items:center;gap:12px;border:1px solid #364056;border-radius:13px;padding:15px;cursor:pointer;margin-bottom:10px}.mode:has(input:checked){background:#283951;border-color:#8eb5ff}input:is([type=radio],[type=checkbox]){appearance:none;flex-shrink:0;width:22px;height:22px;margin:0;border:1px solid #70809c;border-radius:6px;display:grid;place-content:center}input:is([type=radio],[type=checkbox]):checked{background:#a8c7ff;border-color:#a8c7ff}input:is([type=radio],[type=checkbox]):checked:after{content:'✓';color:#14213b;font-size:17px;font-weight:800}.mode span{font-size:14px}.mode small{display:block;color:#acb8cc;font-size:12px;margin-top:4px}.result{background:#111722;border:1px solid #2e384b;border-radius:16px;padding:20px;margin-bottom:16px}.result small{color:#a6b0c3;font-size:13px}output{display:block;font-size:clamp(24px,7vw,42px);line-height:1.3;font-weight:650;letter-spacing:-.04em;margin-top:8px;overflow-wrap:anywhere}button{width:100%;border:0;border-radius:12px;background:#aac8ff;color:#142039;padding:16px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:#c2d7ff}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:2px solid #c2d7ff;outline-offset:4px}#copy-total{margin-top:0}.total-result{margin-top:24px;border-color:#5b739a}#status{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}.foot{text-align:center;font-size:11px;margin:12px 0 0;color:#8794ab}@media(max-width:400px){main{padding:24px}}
+:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#10131b;color:#f1f4fb}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 0,#222d45 0,transparent 65%),#10131b}.calculator{width:100%;max-width:460px;padding:32px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.badge{display:inline-block;font-size:12px;letter-spacing:.12em;color:#a7b7d6;margin-bottom:14px}h1{font-size:29px;letter-spacing:-.04em;margin:0 0 10px}p{color:#a6b0c3;line-height:1.6;font-size:14px;margin:0 0 28px}label.caption{display:block;font-size:14px;margin-bottom:10px}input[type=text]{width:100%;font:inherit;font-size:26px;background:#111722;color:#fff;border:1px solid #3b465d;border-radius:13px;padding:16px;outline:none}input[type=text]:focus{border-color:#9abaff;box-shadow:0 0 0 3px #9abaff20}fieldset{padding:0;border:0;margin:24px 0}legend{font-size:14px;margin-bottom:12px}.mode{display:flex;align-items:center;gap:12px;border:1px solid #364056;border-radius:13px;padding:15px;cursor:pointer;margin-bottom:10px}.mode:has(input:checked){background:#283951;border-color:#8eb5ff}input:is([type=radio],[type=checkbox]){appearance:none;flex-shrink:0;width:22px;height:22px;margin:0;border:1px solid #70809c;border-radius:6px;display:grid;place-content:center}input:is([type=radio],[type=checkbox]):checked{background:#a8c7ff;border-color:#a8c7ff}input:is([type=radio],[type=checkbox]):checked:after{content:'✓';color:#14213b;font-size:17px;font-weight:800}.mode span{font-size:14px}.mode small{display:block;color:#acb8cc;font-size:12px;margin-top:4px}.result{background:#111722;border:1px solid #2e384b;border-radius:16px;padding:20px;margin-bottom:16px}.result small{color:#a6b0c3;font-size:13px}output{display:block;font-size:clamp(24px,7vw,42px);line-height:1.3;font-weight:650;letter-spacing:-.04em;margin-top:8px;overflow-wrap:anywhere}button{width:100%;border:0;border-radius:12px;background:#aac8ff;color:#142039;padding:16px;font:inherit;font-weight:650;cursor:pointer}button:hover{background:#c2d7ff}button:disabled{opacity:.4;cursor:default}:focus-visible{outline:2px solid #c2d7ff;outline-offset:4px}#copy-total{margin-top:0}.total-result{margin-top:24px;border-color:#5b739a}#status{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}.foot{text-align:center;font-size:11px;margin:12px 0 0;color:#8794ab}@media(max-width:400px){.calculator{padding:24px}}
 .layout{display:grid;grid-template-columns:minmax(0,460px);align-items:start;gap:24px;width:100%;max-width:460px}.mini{padding:28px;background:#191f2c;border:1px solid #30394b;border-radius:26px;box-shadow:0 24px 80px #0004}.mini h2{font-size:24px;letter-spacing:-.03em;margin:0 0 10px}.mini .caption{margin-top:20px}.mini input{font-size:23px}.mini .result{margin-top:20px}.mini .excess{margin:20px 0 0;font-size:14px}.mini .excess strong{color:#f1f4fb}.mini-error{color:#ffb3b3;font-size:12px;min-height:18px;margin-top:8px}.mini-status{min-height:22px;text-align:center;font-size:12px;color:#b9ccec;margin-top:12px}@media(max-width:760px){.layout{grid-template-columns:minmax(0,460px);max-width:460px}}@media(max-width:400px){.mini{padding:24px}}
 .mini summary{cursor:pointer;font-size:21px;font-weight:650;line-height:1.4}.mini-body{margin-top:20px}.mini[open] summary{padding-bottom:16px;border-bottom:1px solid #30394b}
 .layout{grid-template-columns:repeat(2,minmax(0,460px));max-width:944px}.mini{grid-column:1/-1}#status-right{min-height:22px;font-size:12px;color:#b9ccec;text-align:center;margin:12px 0 0}#error-right{color:#ffb3b3;font-size:12px;margin-top:8px;min-height:18px}@media(max-width:760px){.layout{grid-template-columns:minmax(0,460px);max-width:460px}}
+.calculator>summary{cursor:pointer;list-style:none;position:relative;padding-right:28px}.calculator>summary::-webkit-details-marker{display:none}.calculator>summary::after{content:'▸';position:absolute;right:0;top:0;font-size:24px;color:#a8c7ff}.calculator[open]>summary::after{content:'▾'}.calculator>summary h1{margin-bottom:0}.calculator>summary .badge{margin-bottom:10px}.calculator-body{margin-top:14px}
 </style>
 </head>
 <body>
 <div class="layout">
-<main>
+<details class="calculator" open>
+<summary>
 <div class="badge">КАЛЬКУЛЯТОР 1</div>
 <h1>Калькулятор лимита</h1>
+</summary>
+<div class="calculator-body">
 <p>Введи сумму и выбери режим расчёта.</p>
 <label class="caption" for="amount">Сумма</label>
 <input id="amount" type="text" inputmode="decimal" placeholder="Например, 38,000" autocomplete="off" spellcheck="false" aria-describedby="error">
@@ -34,10 +38,14 @@
 <button id="copy-total" type="button" disabled>Скопировать сумму с процентом</button>
 <div id="status" role="status"></div>
 <p class="foot">Результаты округляются до целых: от 0,5 — вверх.</p>
-</main>
-<main>
+</div>
+</details>
+<details class="calculator" open>
+<summary>
 <div class="badge">КАЛЬКУЛЯТОР 2</div>
 <h1>Калькулятор лимита</h1>
+</summary>
+<div class="calculator-body">
 <p>Введи сумму и выбери режим расчёта.</p>
 <label class="caption" for="amount-right">Сумма</label>
 <input id="amount-right" type="text" inputmode="decimal" placeholder="Например, 124,000" autocomplete="off" spellcheck="false" aria-describedby="error-right">
@@ -54,7 +62,8 @@
 <button id="copy-total-right" type="button" disabled>Скопировать сумму с процентом</button>
 <div id="status-right" role="status"></div>
 <p class="foot">Результаты округляются до целых: от 0,5 — вверх.</p>
-</main>
+</div>
+</details>
 <details class="mini">
 <summary id="mini-title">Комиссия с превышения</summary>
 <div class="mini-body">
